@@ -3,10 +3,9 @@ import 'package:medtut/src/ui/Weather_list.dart';
 
 import '../blocs/weather_blocs.dart';
 
-
-
 class App extends StatelessWidget {
   final _cityTextController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -31,10 +30,8 @@ class App extends StatelessWidget {
       ),
     );
   }
+
   void _search() async {
     weatherForecastBloc.fetchAllWeather(_cityTextController.text);
-
-    // final response = await _dataService.getWeather(_cityTextController.text);
-    // setState(() => _response = response);
   }
 }

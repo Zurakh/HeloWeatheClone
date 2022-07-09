@@ -37,27 +37,31 @@ class WeatherForecastModel {
 
       WeatherModel weatherModel = WeatherModel();
 
-          print(parsedJSON.values);
-          print(parsedJSON['list'][i]['dt']);
-          print(parsedJSON['list'][i]['dt_txt']);
-          print(parsedJSON['list'][i]['main']['temp'].round().toString());
-          print(parsedJSON['list'][i]['weather'][0]['icon']);
-          print(_timeZone);
-          print(parsedJSON['list'][i]['main']['pressure'].toString());
-          print(parsedJSON['list'][i]['main']['humidity'].toString());
-          print(parsedJSON['list'][i]['weather'][0]['main']);
-          print(parsedJSON['list'][i]['weather'][0]['description']);
-          print(parsedJSON['list'][i]['weather'][0]['icon']);
+      print(parsedJSON.values);
+      print(parsedJSON['list'][i]['dt']);
+      print(parsedJSON['list'][i]['dt_txt']);
+      print(parsedJSON['list'][i]['main']['temp'].round().toString());
+      print(parsedJSON['list'][i]['weather'][0]['icon']);
+      print(_timeZone);
+      print(parsedJSON['list'][i]['main']['pressure'].toString());
+      print(parsedJSON['list'][i]['main']['humidity'].toString());
+      print(parsedJSON['list'][i]['weather'][0]['main']);
+      print(parsedJSON['list'][i]['weather'][0]['description']);
+      print(parsedJSON['list'][i]['weather'][0]['icon']);
 
       weatherModel.dt = parsedJSON['list'][i]['dt'];
       weatherModel.dtTxt = parsedJSON['list'][i]['dt_txt'];
-      weatherModel.temp = parsedJSON['list'][i]['main']['temp'].round().toString();
+      weatherModel.temp =
+          parsedJSON['list'][i]['main']['temp'].round().toString();
       weatherModel.weatherIcon = parsedJSON['list'][i]['weather'][0]['icon'];
       weatherModel.timeZone = _timeZone;
-      weatherModel.pressure = parsedJSON['list'][i]['main']['pressure'].toString();
-      weatherModel.humidity = parsedJSON['list'][i]['main']['humidity'].toString();
+      weatherModel.pressure =
+          parsedJSON['list'][i]['main']['pressure'].toString();
+      weatherModel.humidity =
+          parsedJSON['list'][i]['main']['humidity'].toString();
       weatherModel.weatherMain = parsedJSON['list'][i]['weather'][0]['main'];
-      weatherModel.weatherDescription = parsedJSON['list'][i]['weather'][0]['description'];
+      weatherModel.weatherDescription =
+          parsedJSON['list'][i]['weather'][0]['description'];
 
       _weatherList.add(weatherModel);
     }
@@ -67,7 +71,4 @@ class WeatherForecastModel {
     _cod = cod;
     _error = error;
   }
-
-
-
 }

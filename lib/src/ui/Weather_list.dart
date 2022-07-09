@@ -24,7 +24,7 @@ class WeatherList extends StatelessWidget {
                 } else if (snapshot.hasError) {
                   return Text(snapshot.error.toString());
                 }
-                return Center(child: CircularProgressIndicator());
+                return const Center(child: CircularProgressIndicator());
               },
             ),
           ),
@@ -39,7 +39,7 @@ class WeatherList extends StatelessWidget {
         itemCount: snapshot.data.weatherList.length,
         itemBuilder: (BuildContext context, int index) {
           return Container(
-            padding: EdgeInsets.all(30),
+            padding: const EdgeInsets.all(30),
             decoration: BoxDecoration(
                 color: Colors.black38, borderRadius: BorderRadius.circular(20)),
             child: Column(
@@ -59,6 +59,4 @@ class WeatherList extends StatelessWidget {
           );
         });
   }
-
-
 }
