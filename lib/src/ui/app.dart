@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:medtut/src/ui/Weather_list.dart';
 
 import '../blocs/weather_blocs.dart';
+import '../blocs/current_bloc.dart';
+import 'CurrentWeather.dart';
 
 class App extends StatelessWidget {
   final _cityTextController = TextEditingController();
@@ -23,7 +25,8 @@ class App extends StatelessWidget {
                     textAlign: TextAlign.center),
               ),
               ElevatedButton(onPressed: _search, child: Text('Search')),
-              Expanded(child: WeatherList()),
+              Flexible(flex: 2, child: CurrentWeather()),
+              Expanded(flex: 3, child: WeatherList())
             ],
           ),
         ),
@@ -33,5 +36,6 @@ class App extends StatelessWidget {
 
   void _search() async {
     weatherForecastBloc.fetchAllWeather(_cityTextController.text);
+    currentWeatherBloc.fetchCurrentWeather(_cityTextController.text);
   }
 }

@@ -7,4 +7,7 @@ class Repository {
 
   Future<WeatherForecastModel> fetchWeatherForecast(String requestURL) =>
       openWeatherMapAPIProvider.fetchWeatherForecast(requestURL);
+
+  Future<WeatherModel> fetchCurrentWeather(String requestURL) =>
+    openWeatherMapAPIProvider.fetchCurrentWeather(requestURL);
 }

@@ -8,11 +8,7 @@ class WeatherList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // weatherForecastBloc.fetchAllWeather("omsk");
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text('Forecast'),
-      // ),
       body: Column(
         children: [
           Expanded(
@@ -35,6 +31,8 @@ class WeatherList extends StatelessWidget {
 
   Widget buildList(AsyncSnapshot<WeatherForecastModel> snapshot) {
     return ListView.builder(
+        shrinkWrap: true,
+        scrollDirection: Axis.horizontal,
         padding: const EdgeInsets.all(50),
         itemCount: snapshot.data.weatherList.length,
         itemBuilder: (BuildContext context, int index) {

@@ -30,24 +30,7 @@ class WeatherForecastModel {
     _weatherList = [];
 
     for (int i = 0; i < 40; ++i) {
-      //Надо попробовать просто добавить в список
-      //WeatherModel(parsedJSON)
-
-      //WeatherModel weatherModel = WeatherModel.fromJSON(parsedJSON);
-
       WeatherModel weatherModel = WeatherModel();
-
-      print(parsedJSON.values);
-      print(parsedJSON['list'][i]['dt']);
-      print(parsedJSON['list'][i]['dt_txt']);
-      print(parsedJSON['list'][i]['main']['temp'].round().toString());
-      print(parsedJSON['list'][i]['weather'][0]['icon']);
-      print(_timeZone);
-      print(parsedJSON['list'][i]['main']['pressure'].toString());
-      print(parsedJSON['list'][i]['main']['humidity'].toString());
-      print(parsedJSON['list'][i]['weather'][0]['main']);
-      print(parsedJSON['list'][i]['weather'][0]['description']);
-      print(parsedJSON['list'][i]['weather'][0]['icon']);
 
       weatherModel.dt = parsedJSON['list'][i]['dt'];
       weatherModel.dtTxt = parsedJSON['list'][i]['dt_txt'];

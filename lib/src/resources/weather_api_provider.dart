@@ -1,4 +1,5 @@
 import 'package:http/http.dart' as http;
+import 'package:medtut/src/models/weather_model.dart';
 import 'dart:convert';
 import '../models/weather_forecast_model.dart';
 
@@ -12,6 +13,7 @@ class OpenWeatherMapAPIProvider {
       "units": "metric",
       "lang": "ru"
     };
+
 
     final uri = Uri.https(
         'api.openweathermap.org', 'data/2.5/forecast/', queryParameters);
@@ -30,5 +32,36 @@ class OpenWeatherMapAPIProvider {
       throw Exception("Failed to load weather forecast data");
     }
   }
+
+
+
+  Future<WeatherModel> fetchCurrentWeather(String city) async {
+    final queryParameters = {
+      'q': city,
+      'appid': '09c36f3b979b1751c473eb020965b2b2',
+      "units": "metric",
+      "lang": "ru"
+    };
+
+    final uri = Uri.https(
+        'api.openweathermap.org', 'data/2.5/weather', queryParameters);
+
+
+    try {
+      final response = await client.get(uri);
+      final jsonResponse = json.decode(response.body);
+
+      if (response.statusCode == 200) {
+        return WeatherModel.fromJSON(jsonResponse);
+      } else {
+        return WeatherModel.fromError(
+            response.statusCode.toString(), jsonResponse['message']);
+      }
+    } catch (e) {
+      throw Exception("Failed to load current weather data");
+    }
+  }
+
+
 }
 

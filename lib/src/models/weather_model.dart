@@ -168,7 +168,7 @@ class WeatherModel {
     _weatherMain = parsedJSON['weather'][0]['main'];
     _weatherDescription = parsedJSON['weather'][0]['description'];
     _weatherIcon = parsedJSON['weather'][0]['icon'];
-    _temp = parsedJSON['main']['temp'].toString();
+    _temp = parsedJSON['main']['temp'].round().toString();
     _feelsLike = parsedJSON['main']['feels_like'].toString();
     _tempMin = parsedJSON['main']['temp_min'].toString();
     _tempMax = parsedJSON['main']['temp_max'].toString();
@@ -188,4 +188,5 @@ class WeatherModel {
     _cod = cod;
     _error = error;
   }
+
 }
